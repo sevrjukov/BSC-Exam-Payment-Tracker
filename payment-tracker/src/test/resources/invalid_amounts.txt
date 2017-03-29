@@ -1,0 +1,3 @@
+CZK 100
+USD invalid!
+EUR -89
