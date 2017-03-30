@@ -1,8 +1,6 @@
 package cz.sevrjukov.bsc.paymenttracker.service;
 
-import static org.junit.Assert.*;
-
-import java.util.Map;
+import static org.junit.Assert.fail;
 
 import javax.validation.ConstraintViolationException;
 
@@ -17,7 +15,7 @@ import cz.sevrjukov.bsc.paymenttracker.model.Payment;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { SpringAppTestConfig.class })
-public class PaymentsServiceTest {
+public class PaymentValidationTest {
 
 	
 	// autowired to check conainter-managed bean validator
@@ -80,33 +78,6 @@ public class PaymentsServiceTest {
 	}
 	
 	
-	@Test
-	public void statsCalculationTest() {
-		// re-create tested object to reset its state		
-		testedService = new PaymentsService();
-		
-		testedService.addNewPayment(new Payment("CZK", 100));
-		testedService.addNewPayment(new Payment("AUD", -700));
-		testedService.addNewPayment(new Payment("CZK", 200));
-		testedService.addNewPayment(new Payment("AUD", 700));
-		testedService.addNewPayment(new Payment("CZK", -80));
-		testedService.addNewPayment(new Payment("USD", 222));
-		
-		Map<String, Integer> statResults = testedService.calculateNetAmounts();
-		
-		// check calculated results
-		Integer czkResult = statResults.get("CZK");
-		assertNotNull(czkResult);
-		assertEquals(220, czkResult.intValue());
-		
-		Integer audResult = statResults.get("AUD");
-		assertNotNull(audResult);
-		assertEquals(0, audResult.intValue());
-		
-		Integer usdResult = statResults.get("USD");
-		assertNotNull(usdResult);
-		assertEquals(222, usdResult.intValue());
-		
-	}
+	
 
 }
