@@ -57,11 +57,12 @@ public class CommandLineArgsProcessor {
 					// validation failed
 					paymentsService.addNewPayment(payment);
 					recordsAdded++;
+					logger.debug(payment.toString());
 				} catch (ConstraintViolationException ex) {
-					logger.warn("Ignoring invalid Payment record  %s ", payment);
+					logger.warn("Ignoring invalid Payment record " + payment);
 				}
 			}
-			logger.info("Input file parsed, added %s payment records", recordsAdded);
+			logger.info(String.format("Input file parsed, added %s payment records", recordsAdded));
 		} catch (ParserException ex) {
 			// file parsing error (file missing, inaccessible etc)
 			logger.error(String.format("Failed to parse input file", filePath), ex);

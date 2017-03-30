@@ -46,7 +46,7 @@ public class Payment {
 
 	@Override
 	public String toString() {
-		return String.format("Payment [%s][%s]", currency, amount);
+		return String.format("[%s][%s]", currency, amount);
 	}
 
 	@Override

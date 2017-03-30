@@ -64,7 +64,7 @@ public class ConsoleListener {
 		try {
 			Payment p = lineParser.parseLine(line);
 			service.addNewPayment(p);
-			System.out.println(String.format("New payment record %s added", p.toString()));
+			System.out.println(String.format("New payment %s added", p.toString()));
 		} catch (ParserException pex) {
 			System.out.println(String.format("Incorrectly specified payment record, %s", pex.getMessage()));
 		} catch (ConstraintViolationException ex) {
