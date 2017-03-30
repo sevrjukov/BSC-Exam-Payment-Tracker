@@ -1,0 +1,7 @@
+USD 100
+# invalid line
+100
+SDF
+AA BB CC
+AAA 999 FFF
+CZK -800

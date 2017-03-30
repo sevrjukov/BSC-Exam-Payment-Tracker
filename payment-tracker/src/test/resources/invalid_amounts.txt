@@ -1,3 +1,4 @@
 CZK 100
 USD invalid!
 EUR -89
+ABC +89945

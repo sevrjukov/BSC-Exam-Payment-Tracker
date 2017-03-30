@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
@@ -14,8 +14,8 @@ import org.springframework.validation.beanvalidation.MethodValidationPostProcess
  * @author Alexandr Sevrjukov
  *
  */
-@SpringBootApplication
-@ComponentScan(basePackages="cz.sevrjukov")
+@SpringBootApplication(scanBasePackages="cz.sevrjukov")
+@EnableScheduling
 public class ApplicationStarter {
 
 	private static ApplicationContext context;

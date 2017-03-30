@@ -1,1 +1,4 @@
 - logging
+- comment everything
+- implement bonus feature
+- write readme and write assumptions

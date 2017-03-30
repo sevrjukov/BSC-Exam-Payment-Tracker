@@ -5,14 +5,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 
-public abstract class InputFileParser<T> {
+public abstract class AbstractFileParser<T> {
 
-	protected Path fileToParse;
 	
 	
 	public Collection<T> parseFile(String filePath) throws ParserException {
 		// check if the input file exists
-		fileToParse = Paths.get(filePath);
+		Path fileToParse = Paths.get(filePath);
 		if (!Files.exists(fileToParse)) {
 			throw new ParserException(String.format("The specified file [%s] path does not exist", filePath));
 		}
