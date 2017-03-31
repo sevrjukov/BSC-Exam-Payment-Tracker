@@ -1,7 +1,7 @@
-****************************************
-*  BSC Java Test Canidate Application  *
-*  Payment Tracker					   *
-****************************************
+*****************************************
+*  BSC Java Test Canidate Application   *
+*  Payment Tracker			*
+*****************************************
 
 INTRODUCTION
 
