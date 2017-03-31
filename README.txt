@@ -1,5 +1,5 @@
 *****************************************
-*  BSC Java Test Canidate Application   *
+*  BSC Java Test Candidate Application   *
 *  Payment Tracker			*
 *****************************************
 
