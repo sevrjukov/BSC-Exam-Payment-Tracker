@@ -5,17 +5,18 @@
 
 INTRODUCTION
 
-The application is Java, Maven-based application built using Spring framework,
+The application is a Java application built using Spring framework,
 in particular Spring Boot components, allowing easy assembly and usage.
+Maven is used for dependency management and binaries building.
 
 
 APPLICATION ASSEMBLY INSTRUCTIONS
 
 Pre-requisites:
 
-1. Java JDK version 8 is installed
-2. Maven version 3 is installed
-3. The computer has internet connection to allow 3rd party library downloads
+1. Java JDK version 8 is installed.
+2. Maven version 3 is installed.
+3. The computer has an internet connection to allow 3rd party library downloads
    from Maven repositories.
 
 How to build:
@@ -23,7 +24,7 @@ How to build:
 1. Navigate to payment-tracker directory.
 2. Execute the following in the command line:
 	mvn clean package
-3. You should see a "BUILD SUCCESS" message after the assembly is completed.
+3. You should see a "BUILD SUCCESS" message after assembly is completed.
    
 
    
@@ -46,13 +47,14 @@ ASSUMPTIONS AND MODIFICATIONS
   
 - Input file parsing - Invalid lines are ignored, but parsing continues until the
   end of file is reached. If the specified file does not exist or a read lock cannot
-  be obtained, and error message is displayed, but the program continues.
+  be obtained, an error message is displayed, but the program continues.
   
 - Console input parsing - Invalid user inputs result in displaying an error message
-  with error description
+  with error description, but the program continues.
 
-- Payment records persistence - The records (both loaded from the file or entered
+- Payment records persistence - The records (both loaded from the file and entered
   manually) are stored just in memory, no database (even memory-based) is utilized.
+  When the program is stopped, the data is lost.
   
 - Exchange rates configuration:
 
