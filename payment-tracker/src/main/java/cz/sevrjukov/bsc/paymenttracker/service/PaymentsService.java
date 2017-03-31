@@ -16,6 +16,12 @@ import org.springframework.validation.annotation.Validated;
 import cz.sevrjukov.bsc.paymenttracker.model.NetPayments;
 import cz.sevrjukov.bsc.paymenttracker.model.Payment;
 
+/**
+ * Stores and processes Payment records.
+ * 
+ * @author Alexandr Sevrjukov
+ *
+ */
 @Service
 @Validated
 public class PaymentsService {
@@ -48,7 +54,9 @@ public class PaymentsService {
 	}
 
 	/**
-	 * Calculates statistics - net amount of all transactions per currency.
+	 * Calculates statistics - net amount of all transactions per currency,
+	 * including amount in USD, if the exchange rate to this currency is
+	 * specified.
 	 * 
 	 * @return
 	 */

@@ -9,7 +9,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 /**
- * Application starter entry point
+ * Spring Boot Application entry point.
  * 
  * @author Alexandr Sevrjukov
  *
@@ -37,11 +37,21 @@ public class ApplicationStarter {
 	}
 
 	
+	/**
+	 * Configures bean validation processor.
+	 * (Used for bean validation).
+	 * @return
+	 */
 	@Bean
 	public MethodValidationPostProcessor methodValidationPostProcessor() {
 		return new MethodValidationPostProcessor();
 	}
 
+	/**
+	 * Configures bean validator factory.
+	 * (Used for bean validation).
+	 * @return
+	 */
 	@Bean
 	public LocalValidatorFactoryBean validatorFactory() {
 		return new LocalValidatorFactoryBean();

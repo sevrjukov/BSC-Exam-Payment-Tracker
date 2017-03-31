@@ -5,8 +5,19 @@ import java.util.Objects;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+
+/**
+ * Represents one payment.
+ * 
+ * @author Alexandr Sevrjukov
+ *
+ */
 public class Payment {
 
+	
+	/**
+	 * The currency code can be automatically validated.
+	 */
 	@NotNull(message = "Currency must be specified")
 	@Pattern(regexp = "^[A-Z]{3}$", message = "Currency wrongly specified, expected 3 capital characters")
 	private String currency;

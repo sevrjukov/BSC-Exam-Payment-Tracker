@@ -17,7 +17,14 @@ import org.springframework.stereotype.Component;
 
 import cz.sevrjukov.bsc.paymenttracker.model.Payment;
 
-
+/**
+ * Input payments file parser. Parses files which contain
+ * payment records in format  &lt;STRING&gt; &lt;INTEGER&gt;.
+ * Invalid lines are skipped and a warning is logged.
+ * 
+ * @author Alexandr Sevrjukov
+ *
+ */
 @Component
 public class PaymentsFileParser extends AbstractFileParser<Payment> {
 
@@ -28,6 +35,10 @@ public class PaymentsFileParser extends AbstractFileParser<Payment> {
 
 	
 	
+	/**
+	 * Parses the file. Tries to obtain file lock prior to parsing to avoid
+	 * issues with concurrent file modification.
+	 */
 	@Override
 	protected Collection<Payment> parseContent(Path fileToParse) throws ParserException {
 		logger.debug(String.format("Parsing file %s", fileToParse.toString()));
@@ -72,7 +83,12 @@ public class PaymentsFileParser extends AbstractFileParser<Payment> {
 		}
 	}
 
-	
+	/**
+	 * Delegates the actual parsing to the LineParser
+	 * @param line
+	 * @return
+	 * @throws ParserException
+	 */
 	private Payment parseLine(String line) throws ParserException {
 		return lineParser.parseLine(line);
 	}

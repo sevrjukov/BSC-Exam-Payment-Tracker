@@ -15,6 +15,15 @@ import cz.sevrjukov.bsc.paymenttracker.parser.ParserException;
 import cz.sevrjukov.bsc.paymenttracker.parser.PaymentLineParser;
 import cz.sevrjukov.bsc.paymenttracker.service.PaymentsService;
 
+
+/**
+ * Listens for user input via console and processes it.
+ * Servers as a mini-controller. Launches a separate listener
+ * thread.
+ * 
+ * @author Alexandr Sevrjukov
+ *
+ */
 @Component
 public class ConsoleListener {
 
@@ -25,6 +34,7 @@ public class ConsoleListener {
 
 	@Autowired
 	private PaymentsService service;
+	
 	
 	private Thread consoleListeningThread;
 
@@ -66,8 +76,10 @@ public class ConsoleListener {
 			service.addNewPayment(p);
 			System.out.println(String.format("New payment %s added", p.toString()));
 		} catch (ParserException pex) {
+			// this is parser exception
 			System.out.println(String.format("Incorrectly specified payment record, %s", pex.getMessage()));
 		} catch (ConstraintViolationException ex) {
+			// this is bean validation exception
 			Set<ConstraintViolation<?>> violations = ex.getConstraintViolations();
 			System.out.println("Incorrectly specified payment record. Errors:");
 			for (ConstraintViolation<?> violation : violations) {
@@ -82,7 +94,7 @@ public class ConsoleListener {
 			String inputLine = "";
 			try (Scanner sc = new Scanner(System.in)) {
 				while (true) {
-					// check if we should finish in this thread
+					// check if we should finish this thread
 					if (Thread.interrupted()) {
 						return;
 					}

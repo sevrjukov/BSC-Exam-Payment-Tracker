@@ -1,15 +1,30 @@
 package cz.sevrjukov.bsc.paymenttracker.model;
 
+
+/**
+ * Represents one line of output - net amounts 
+ * of all payments per one currency.
+ *  
+ * @author Alexandr Sevrjukov
+ *
+ */
 public class NetPayments {
 
 	private String currency;
 
 	private int amount;
 
+	/**
+	 * Currencyc code to which the amount was converted
+	 */
 	private String otherCurrency;
 
+	/**
+	 * Amount in other currency
+	 */
 	private double amountInOther;
 
+	
 	public NetPayments(String currency, int amount) {
 		this.currency = currency;
 		this.amount = amount;

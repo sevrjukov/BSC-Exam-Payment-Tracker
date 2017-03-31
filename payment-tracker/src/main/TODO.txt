@@ -1,5 +1,3 @@
 - logging
-- comment everything
 - write readme and write assumptions
 - check all TODOs
-- run static code analysis

@@ -14,6 +14,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
+/**
+ * Maintains currency exchange rates. Loads exchange rates configuration from
+ * 'exchange.rates' file. It is expected that the file contains records in
+ * format: CU1/CU2=rate (double), for example 'USD/CZK=25.26017'. The file is
+ * loaded once during application startup and cached in memory.
+ * 
+ * @author Alexandr Sevrjukov
+ *
+ */
 @Service
 public class ExchangeRatesService {
 
@@ -106,7 +115,7 @@ public class ExchangeRatesService {
 	}
 
 	/**
-	 * Composite hasmap key to store exchange rates
+	 * Composite hashmap key to store exchange rates
 	 *
 	 */
 	private class ExchangeRateKey {

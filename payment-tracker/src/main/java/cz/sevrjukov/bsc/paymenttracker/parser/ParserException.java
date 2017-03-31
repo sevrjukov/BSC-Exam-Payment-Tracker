@@ -1,5 +1,11 @@
 package cz.sevrjukov.bsc.paymenttracker.parser;
 
+/**
+ * General exception which happens during file parsing, for various reasons.
+ * 
+ * @author Alexandr Sevrjukov
+ *
+ */
 public class ParserException extends Exception {
 
 	private static final long serialVersionUID = 2344834341781381923L;

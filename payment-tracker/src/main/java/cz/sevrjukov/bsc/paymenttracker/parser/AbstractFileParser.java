@@ -5,6 +5,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 
+
+/**
+ * Base generic class for file parsers.
+ * Takes care of file handling, but leaves the actual parsing
+ * to implementors.
+ * 
+ * @author Alexandr Sevrjukov
+ *
+ * @param <T>
+ */
 public abstract class AbstractFileParser<T> {
 
 	
